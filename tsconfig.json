@@ -1,0 +1,21 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "module": "commonjs",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "preserveConstEnums": true,
+    "moduleResolution": "node",
+    "experimentalDecorators": true,
+    "jsx": "preserve",
+    "lib": ["es5","es6","es7","es2017"],
+    "allowSyntheticDefaultImports": true,
+    "typeRoots": ["node_modules/@types"],
+    "baseUrl": "./src",
+    "outDir": "./build"
+  },
+  "exclude": [
+    "build",
+    "node_modules"
+  ]
+}

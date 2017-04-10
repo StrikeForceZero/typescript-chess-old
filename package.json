@@ -1,0 +1,18 @@
+{
+  "name": "typescript-chess",
+  "version": "0.0.1",
+  "description": "Chess engine written in typescript",
+  "main": "build/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": {
+    "email": "strikeforcezero@gmail.com",
+    "name": "Brett Striker"
+  },
+  "license": "GPL-3.0",
+  "dependencies": {
+    "@types/node": "^7.0.12",
+    "typescript": "^2.2.2"
+  }
+}
