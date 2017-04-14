@@ -1,6 +1,9 @@
 import Position from '../Position';
-import Piece, { Color, Moves, Type } from './index';
+import Piece, { TypeChar, Color, Moves, Type } from './index';
 export default class Rook extends Piece {
+
+    protected static TypeChar = TypeChar.Rook;
+
     Moves: Moves = [
         [ 1, 0 ],
         [ 0, 1 ],

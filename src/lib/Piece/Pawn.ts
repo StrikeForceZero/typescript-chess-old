@@ -1,6 +1,9 @@
 import Position from '../Position';
-import Piece, { Color, Moves, Type } from './index';
+import Piece, { TypeChar, Color, Moves, Type } from './index';
 export default class Pawn extends Piece {
+
+    protected static TypeChar = TypeChar.Pawn;
+
     Moves: Moves = [
         [ this.Color === Color.White ? 1 : -1, 0 ],
     ];

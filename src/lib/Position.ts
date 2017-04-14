@@ -25,4 +25,8 @@ export default class Position {
     public equals(position: Position) {
         return this.Y === position.Y && this.X === position.X;
     }
+
+    toString() {
+        return `${XPos[this.X]}${this.Y}`;
+    }
 }
