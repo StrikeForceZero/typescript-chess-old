@@ -1,7 +1,7 @@
 import Square, { SquareColor } from './Square';
 import Position, { XPos, YPos } from './Position';
 import Piece, { Color, Move, Type } from './Piece';
-import { UnicodePiece } from './UnicodePiece';
+import UnicodeRenderer from './UnicodeRenderer';
 import Bishop from './Piece/Bishop';
 import Knight from './Piece/Knight';
 import Queen from './Piece/Queen';
@@ -9,6 +9,7 @@ import Rook from './Piece/Rook';
 import King from './Piece/King';
 import Pawn from './Piece/Pawn';
 import Log from './Log';
+import { IRenderer } from './AbstractRenderer';
 
 export type BoardRow<T extends Square | Piece> = [T, T, T, T, T, T, T, T];
 export type BoardMatrix<T extends Square | Piece> = [
@@ -32,10 +33,6 @@ function generateMatrix<T extends Square | Piece>(getItem: (x: XPos, y: YPos) =>
     }
     return board;
 }
-
-const squareColorMap = [] as [string, string];
-squareColorMap[SquareColor.White] = '■';
-squareColorMap[SquareColor.Black] = '□';
 
 export default class Board {
 
@@ -103,15 +100,15 @@ export default class Board {
         this.Log = log;
     }
 
-    public display() {
+    public display(renderer: IRenderer) {
         for(const [ypos, column] of Object.entries(this.Squares).reverse()) {
             for(const [xpos, square] of Object.entries(column)) {
                 const piece = this.Pieces[ypos][xpos];
                 if(piece) {
-                    process.stdout.write(UnicodePiece.render(piece));
+                    process.stdout.write(renderer.renderPiece(piece));
                     continue;
                 }
-                process.stdout.write(squareColorMap[ square.Color ]);
+                process.stdout.write(renderer.renderSquare(square.Color));
             }
             process.stdout.write('\n')
         }
